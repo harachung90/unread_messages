@@ -1,25 +1,22 @@
 import './App.css';
 import React from 'react';
-import MsgList from "./MsgList";
-import MsgReminder from "./MsgReminder";
 
 function App() {
 
-    /*const MsgElement = MsgList.map(msg => {
-        return <MsgReminder
-            txt={msg.txt}
-            read={msg.read}
-            numUnreadMsg={msg.numUnreadMsg}
-            />
-    })*/
+    const [messages, setMessages] = React.useState(["Msg 1", "Msg 2"])
 
-    //const numUnreadMsg = MsgList.filter(message => message.read === false).length
-    //console.log(numUnreadMsg)
 
     return (
         <div>
             {/*{MsgElement}*/}
-            <MsgReminder />
+            {/*<MsgReminder />*/}
+
+            <div>
+                { messages.length === 0 ?
+                    <h1>You're all caught up!</h1>
+                    : <h1>You have {messages.length} unread
+                        { messages.length > 1 ? " messages" : " message"}!</h1>}
+            </div>
         </div>
     )
 }
